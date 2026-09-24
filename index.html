@@ -3,20 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>R-Vision+</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #17202a;
+        }
+
+        header {
+            background: #17202a;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #d5d8dc;
+        }
+
+        main {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .welcome h2 {
+            margin-bottom: 10px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .subject {
+            background: white;
+            border: none;
+            border-radius: 16px;
+            padding: 22px 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .subject:hover {
+            transform: translateY(-2px);
+        }
+
+        .quiz {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .quiz h2 {
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .answer {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border: 1px solid #d5d8dc;
+            border-radius: 10px;
+            background: #fafafa;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .answer:hover {
+            background: #eaf2f8;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            color: #7b7d7d;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
 
+<header>
     <h1>R-Vision+</h1>
-
     <p>Révise, progresse, réussis.</p>
+</header>
+
+<main>
+
+    <section class="welcome">
+        <h2>Bienvenue sur R-Vision+</h2>
+        <p>
+            Une application simple pour réviser,
+            apprendre et tester tes connaissances.
+        </p>
+    </section>
 
     <h2>Choisis une matière</h2>
 
-    <button>Français</button>
-    <button>Culture générale</button>
-    <button>Histoire</button>
+    <section class="subjects">
+
+        <button class="subject" onclick="showSubject('Français')">
+            Français
+        </button>
+
+        <button class="subject" onclick="showSubject('Culture générale')">
+            Culture générale
+        </button>
+
+        <button class="subject" onclick="showSubject('Histoire')">
+            Histoire
+        </button>
+
+        <button class="subject" onclick="showSubject('Anglais')">
+            Anglais
+        </button>
+
+    </section>
+
+    <section class="quiz">
+
+        <h2>Mini-quiz</h2>
+
+        <p class="question">
+            Quelle est la capitale du Burkina Faso ?
+        </p>
+
+        <button class="answer" onclick="checkAnswer(false)">
+            Bobo-Dioulasso
+        </button>
+
+        <button class="answer" onclick="checkAnswer(true)">
+            Ouagadougou
+        </button>
+
+        <button class="answer" onclick="checkAnswer(false)">
+            Koudougou
+        </button>
+
+        <p id="result"></p>
+
+    </section>
+
+</main>
+
+<footer>
+    R-Vision+ — Apprendre aujourd'hui pour réussir demain.
+</footer>
+
+<script>
+
+function showSubject(subject) {
+    alert("Tu as choisi : " + subject);
+}
+
+function checkAnswer(correct) {
+
+    const result = document.getElementById("result");
+
+    if (correct) {
+        result.textContent = "Bonne réponse !";
+    } else {
+        result.textContent = "Mauvaise réponse. Essaie encore !";
+    }
+
+}
+
+</script>
 
 </body>
-</html>
+    </html>
